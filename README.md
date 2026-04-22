@@ -1,96 +1,171 @@
 # MediScan
 
-MediScan is an advanced AI-powered application for predicting heart disease and lung cancer using machine learning models.
+**MediScan** is an AI-enabled medical diagnostics application that combines predictive models for heart disease and lung cancer with a modern web interface.
 
-## Project Structure
+---
 
+## 🚀 Project Overview
+
+- **Backend**: Flask API serving prediction endpoints for heart disease and lung cancer.
+- **Frontend**: React application for interactive user input and prediction result visualization.
+- **Models**: Pre-trained machine learning models stored under `src/backend/models/`.
+- **Training assets**: Jupyter notebooks for model development and validation are available in `training/`.
+
+---
+
+## 📁 Repository Structure
+
+```text
 MultiDiseasePrediction/
-│
 ├── README.md
 ├── requirements.txt
-├── REFACTORING_GUIDE.md
-│
-├── 📁 src/
-│   ├── 📁 backend/
+├── RESTRUCTURING_CHECKLIST.md
+├── src/
+│   ├── backend/
 │   │   ├── app.py
 │   │   ├── config.py
-│   │   ├── 📁 models/                    (ML Models)
+│   │   ├── models/
 │   │   │   ├── heart.pkl
 │   │   │   └── lung_cancer_detection_model.keras
-│   │   ├── 📁 routes/                    (API Routes)
+│   │   ├── routes/
 │   │   │   ├── __init__.py
 │   │   │   ├── heart.py
 │   │   │   └── lung.py
-│   │   └── 📁 uploads/                   (Auto-created for images)
-│   │
-│   └── 📁 frontend/                      (React App)
+│   │   └── uploads/  (runtime image uploads)
+│   └── frontend/
 │       ├── package.json
-│       ├── public/
-│       │   └── index.html
+│       ├── public/index.html
 │       └── src/
 │           ├── App.js
 │           ├── App.css
 │           ├── index.js
 │           └── index.css
-│
-├── 📁 training/
-│   ├── Heart_Disease_Prediction.ipynb
-│   ├── Lung-Cancer-Detection-using-CNN-V2.ipynb
-│   │
-│   ├── 📁 data/                         (NEW - Datasets folder)
-│   │   ├── heart.csv                    (To download from Kaggle)
-│   │   └── lung_images/                 (To download from Kaggle)
-│   │
-│   └── 📁 tests/                        (NEW - Test files)
-│       ├── test_lung.py
-│       ├── test_model.py
-│       ├── test_real.py
-│       └── test_image.jpeg
-│
-└── 📁 MDvenv/                           (Virtual environment)
+└── training/
+    ├── Heart_Disease_Prediction.ipynb
+    ├── Lung-Cancer-Detection-using-CNN-V2.ipynb
+    └── tests/
+        ├── test_image.jpeg
+        ├── test_lung.py
+        ├── test_model.py
+        └── test_real.py
+```
 
-## Setup
+---
 
-### 1. Environment
-- Create a Python virtual environment:
-  ```bash
-  python -m venv venv
-  venv\Scripts\activate  # Windows (PowerShell)
-  venv\Scripts\activate.bat    # Windows (cmd)
-  source venv/bin/activate # macOS/Linux
+## ✅ Key Features
 
-- Install dependencies:
-  pip install -r requirements.txt
+- Heart disease prediction through structured clinical data.
+- Lung cancer prediction using image-based classification.
+- Clean separation of API, model assets, and UI.
+- Notebook-driven experimentation for reproducibility.
 
-### Backend (Flask)
+---
 
-1. Navigate to the backend directory: `cd src\backend`
-2. Run the Flask app: `python app.py`
+## 🛠️ Prerequisites
 
-The backend will run on http://localhost:5000
+- Python 3.10+ (recommended)
+- Node.js 16+ and npm
+- Git
 
-### Frontend (React)
+---
 
-1. In a seperate terminal, navigate to the frontend directory: `cd src\frontend`
-2. Install dependencies: `npm install` (already done)
-3. Start the React app: `npm start`
+## ⚙️ Installation
 
-The frontend will run on http://localhost:3000
+### 1. Set up Python environment
 
-## Usage
+```bash
+cd MultiDiseasePrediction
+python -m venv venv
+```
 
-- Open the frontend in your browser.
-- Choose Heart Disease or Lung Cancer prediction.
-- Fill the form and submit.
-- Use the Back button to return to the main page.
+Activate the environment:
 
-## Models
+- PowerShell:
+  ```powershell
+  .\venv\Scripts\Activate.ps1
+  ```
+- Command Prompt:
+  ```cmd
+  .\venv\Scripts\activate.bat
+  ```
 
-- **Heart Disease**: Random Forest model trained on [heart.csv](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset)
-- **Lung Cancer**: CNN model trained on [Lung Cancer Imaging Dataset](<INSERT-KAGGLE-LINK-HERE>)
+Install dependencies:
 
-> Note: Datasets are not included in this repository due to size and licensing. Please download them from the provided links before running the training notebooks.  
-> Place the dataset files inside:  
-> ```
-> MultiDiseasePrediction/training/data/
-> ```
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Install frontend dependencies
+
+```bash
+cd src/frontend
+npm install
+```
+
+---
+
+## ▶️ Run the Application
+
+### Backend
+
+```bash
+cd src/backend
+python app.py
+```
+
+The API should be available at:
+
+- `http://localhost:5000`
+
+### Frontend
+
+```bash
+cd src/frontend
+npm start
+```
+
+The React UI should open at:
+
+- `http://localhost:3000`
+
+---
+
+## 🧪 Testing
+
+There are test assets in `training/tests/` for verifying model-related workflows.
+
+Run Python-based tests using your preferred test runner, for example:
+
+```bash
+python -m pytest training/tests
+```
+
+> Note: If `pytest` is not installed, add it to `requirements.txt` or install it manually.
+
+---
+
+## 📌 Important Notes
+
+- The repository includes pre-trained models in `src/backend/models/`.
+- Training datasets are not included due to size and licensing restrictions.
+- If you want to re-run training notebooks, place your datasets under `training/data/`.
+
+---
+
+## 📚 Optional Enhancements
+
+- Add dataset download links in `training/`.
+- Document backend API endpoints and request formats.
+- Add frontend screenshots or demo instructions.
+
+---
+
+## 📝 Additional Resources
+
+- `RESTRUCTURING_CHECKLIST.md` — guidelines for project refactoring and organization.
+
+---
+
+## 🙌 Contact
+
+For questions or improvements, update this README or open an issue in the repository.
